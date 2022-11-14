@@ -82,6 +82,17 @@ img {
   z-index: 99 !important;
 }
 
+/* .container {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+} */
+
 @layer components {
   .swiper {
     @apply w-full h-[55vh] md:h-[45vh] xl:h-[50vh];

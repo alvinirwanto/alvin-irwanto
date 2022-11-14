@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import TitleSection from '../commons/TitleSection'
 import ItemSkills from '../commons/ItemSkills'
 
 import { useTheme } from 'next-themes'
 
+
 const Skills = () => {
+    const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+
+    if (!mounted) {
+        return null
+    }
+
     return (
-        <div className='section-template'>
+        <div className='section-template h-screen'>
             <TitleSection title='Skills' subtitle='My Technical Skills' />
             <div className='grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-5 max-w-[1000px]'>
 
@@ -17,7 +28,7 @@ const Skills = () => {
                 <ItemSkills logo='/logo/react.png' title='React JS' />
                 <ItemSkills logo='/logo/tailwind.png' title='Tailwind CSS' />
                 <ItemSkills logo={theme === 'dark' ? '/logo/nextjs-dark.png' : '/logo/nextjs.png'} title='Next JS' />
-                <ItemSkills logo={theme === 'dark' ? '/logo/github-dark.png' : '/logo/github.png' } title='GitHub' />
+                <ItemSkills logo={theme === 'dark' ? '/logo/github-dark.png' : '/logo/github.png'} title='GitHub' />
                 <ItemSkills logo='/logo/figma.png' title='Figma' />
                 <ItemSkills logo='/logo/wordpress.png' title='Wordpress' />
                 <ItemSkills logo='/logo/google.png' title='Googling' />
